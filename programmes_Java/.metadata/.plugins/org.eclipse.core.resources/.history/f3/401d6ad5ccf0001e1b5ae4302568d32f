@@ -1,0 +1,23 @@
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import java.util.*;
+
+public class BlankClass extends GraphicsProgram{
+    public void run(){
+    	GImage img1 = new GImage("D:\\programmes_Java\\greenBackground.jpg");
+    	GImage img2 = new GImage("D:\\programmes_Java\\greenForeground.jpg");
+    	int[][] pixels1 = img1.getPixelArray();
+    	int[][] pixels2 = img2.getPixelArray();
+    	for(int i = 0; i < N; ++ i){
+    		int r = getRandom(0, pixels.length - 1);
+    		int c = getRandom(0, pixels[0].length - 1);
+    		int range = getRandom(0, 6);
+    		for (int k = Math.max(0, r - range / 2); k < Math.min(r + range / 2, pixels.length); ++ k)
+    			for(int j = Math.max(0, c - range / 2); j < Math.min(c + range / 2, pixels[0].length); ++ j)
+    				pixels[k][j] = pixels[r][c];
+    	}
+    	GImage img2 = new GImage(pixels);
+    	add(img2);
+    }
+}

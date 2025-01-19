@@ -1,0 +1,14 @@
+import acm.program.*;
+import java.util.*;
+import java.io.*;
+
+public class add2Integers extends ConsoleProgram{
+	
+	public void run() {
+		int[] fib = new int[110];
+		fib[0] = 0; fib[1] = 1;
+		for (int i = 2; i <= 100; ++ i)
+			fib[i] = fib[i - 1] + fib[i - 2];
+		println(fib[100]);
+	}
+}

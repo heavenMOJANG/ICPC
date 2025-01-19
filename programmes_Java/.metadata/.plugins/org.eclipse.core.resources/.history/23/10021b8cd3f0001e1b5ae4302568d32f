@@ -1,0 +1,30 @@
+import acm.program.*;
+import java.util.*;
+import java.io.*;
+
+public class add2Integers extends ConsoleProgram{
+	
+	private const int[8][2] d= {{-1, 1}, {-1, 0},{-1, 1},{0, -1},{0, 1},{1, -1},{1, 0},{1, 1}};
+	private static int getRandom(int a, int b){
+		Random r = new Random();
+		return r.nextInt(b - a + 1) + a;
+	}
+	
+	public void run() {
+		int[][] situation = new int[100][100];
+		int[][] number = new int[100][100];
+		for(int i = 0; i < 100; ++ i)
+			for(int j = 0; j < 100; ++ j){
+				situation[i][j] = getRandom(0,100) % 2;
+				number[i][j] = 0;
+			}
+		while(true){
+			for(int i = 0; i < 100; ++ i){
+				for(int j = 0; j < 100; ++ j) print(situation[i][j]);
+				println();
+			}
+			System.out.flush();
+			
+		}
+	}
+} 

@@ -1,0 +1,39 @@
+import acm.program.*;
+import java.util.*;
+import java.io.*;
+
+public class add2Integers extends ConsoleProgram{
+	
+	private static int[][] d={{-1, 1}, {-1, 0},{-1, 1},{0, -1},{0, 1},{1, -1},{1, 0},{1, 1}};
+	private static int N = 100;
+	private static int getRandom(int a, int b){
+		Random r = new Random();
+		return r.nextInt(b - a + 1) + a;
+	}
+	
+	public void run() {
+		int[][] situation = new int[N][N];
+		int[][] number = new int[N][N];
+		for(int i = 0; i < N; ++ i)
+			for(int j = 0; j < N; ++ j){
+				situation[i][j] = getRandom(0,100) % 2;
+				number[i][j] = 0;
+			}
+		while(true){
+			for(int i = 0; i < N; ++ i){
+				for(int j = 0; j < N; ++ j) print(situation[i][j]);
+				println();
+			}
+			System.out.flush();
+			for(int i = 0; i < N; ++ i)
+				for(int j = 0; j < N; ++ j){
+					int sum = 0;
+					for(int k = 0; k < 8; ++k){
+						int dx = i + d[i][0], dy = j + d[i][1];
+						if(dx < 0 || dx >= N || dy < 0 || dy >= N) continue;
+						sum += situation[dx][dy];
+					}
+				}
+		}
+	}
+} 

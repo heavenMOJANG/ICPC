@@ -1,0 +1,19 @@
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import java.util.*;
+
+public class BlankClass extends GraphicsProgram{
+    public void run(){
+    	GImage img1 = new GImage("D:\\programmes_Java\\greenBackground.jpg");
+    	GImage img2 = new GImage("D:\\programmes_Java\\greenForeground.jpg");
+    	int[][] pixels1 = img1.getPixelArray();
+    	int[][] pixels2 = img2.getPixelArray();
+    	for (int i = 0; i < pixels1.length; ++ i)
+    		for(int j = 0; j < pixels1[0].length; ++ j)
+    			if(-16749899 <= pixels2[i][j] && pixels2[i][j] <= -15039400)
+    				pixels1[i][j] = pixels2[i][j];
+    	GImage img3 = new GImage(pixels1);
+    	add(img3);
+    }
+}

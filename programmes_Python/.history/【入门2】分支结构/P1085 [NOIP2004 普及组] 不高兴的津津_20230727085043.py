@@ -1,0 +1,1 @@
+week=[0]+[x+y for i in x,y=map(int,input().split())]

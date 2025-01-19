@@ -1,0 +1,8 @@
+n=int(input())
+n//=52*7
+k=1
+while 1:
+    x=n-3*k
+    if 1<=x<=100:
+        print("{:d} {:d}".format(x,k))
+        exit(0)

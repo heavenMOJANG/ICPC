@@ -1,0 +1,26 @@
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import java.util.*;
+
+public class BlankClass extends GraphicsProgram{
+	private static int getRandom(int a, int b){
+		Random r = new Random();
+		return r.nextInt(b - a + 1) + a;
+	}
+    public void run(){
+    	GImage img = new GImage("D:\\programmes_Java\\snowmanBuddha.jpg");
+    	int[][] pixels = img.getPixelArray();
+    	int N = getRandom(10, 100000);
+    	for(int i = 0; i < N; ++ i){
+    		int r = getRandom(0, pixels.length - 1);
+    		int c = getRandom(0, pixels[0].length - 1);
+    		int range = getRandom(0, 6);
+    		for (int k = Math.max(0, r - range / 2); k < Math.min(r + range / 2, pixels.length); ++ k)
+    			for(int j = Math.max(0, c - range / 2); j < Math.min(c + range / 2, pixels[0].length); ++ j)
+    				pixels[k][j] = pixels[r][c];
+    	}
+    	GImage img2 = new GImage(pixels);
+    	add(img2);
+    }
+}
