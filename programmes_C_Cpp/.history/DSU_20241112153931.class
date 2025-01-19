@@ -1,0 +1,20 @@
+class DSU {
+private:
+    T n;
+    vector<T> fat, siz;
+public:
+    DSU(int n) : fat(n + 1), siz(n + 1, 1) {iota(fat.begin(), fat.end(), 0);}
+    T findSet(T x) { return fat[x] == x ? x : fat[x] = findSet(fat[x]); }
+    bool isSame(T x, T y) {
+        x = findSet(x), y = findSet(y);
+        return x == y ? true : false;
+    }
+    bool unionSet(T x, T y) {
+        x = findSet(x), y = findSet(y);
+        if (x == y) return false;
+        if (siz[x] > siz[y]) fat[y] = x, siz[x] += siz[y];
+        else fat[x] = y, siz[y] += siz[x];
+    }
+    T getFather(T x) { return fat[x];}
+    T getSize(T x) { return siz[x]; }
+};

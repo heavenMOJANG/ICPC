@@ -1,0 +1,1 @@
+{"name":"Local: hdu1556 Color the ball","url":"d:\\programmes_C_Cpp\\HDU\\hdu1556 Color the ball.cpp","tests":[{"id":1691115549077,"input":"3\n1 1\n2 2\n3 3\n3\n1 1\n1 2\n1 3\n0","output":"1 1 1\n3 2 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\programmes_C_Cpp\\HDU\\hdu1556 Color the ball.cpp","group":"local","local":true}

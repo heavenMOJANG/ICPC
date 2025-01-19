@@ -1,0 +1,37 @@
+#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int q; cin >> q;
+    vector<int> pre;
+    pre.emplace_back(0);
+    int pre{}, p{}, n = 1;
+    while (q --) {
+        int op; cin >> op;
+        switch (op) {
+            case 1:
+                int l; cin >> l;
+                pre.emplace_back(l);
+                n ++;
+                pre[n - 1] += pre[n - 2];
+                break;
+            case 2:
+                pre += len[p ++];
+                break;
+            case 3:
+                int k; cin >> k;
+                cout << 
+        }
+    }
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}

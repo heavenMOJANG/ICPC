@@ -1,0 +1,31 @@
+#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3,"Ofast","inline")
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int inf=0x7fffffff;
+constexpr int mod=998244353;
+signed main(){
+    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    string s;cin>>s;
+    auto qpow=[&](int a,int x){
+        int res=1;
+        while(x){
+            if(x&1) res=res*a%mod;
+            a=a*a%mod;
+            x>>=1;
+        }
+        return res;
+    };
+    int ans=qpow(3,s.size()-1);
+    int tmp=1;
+    for(int i=0;i<s.size();++i)
+        switch(s[i]){
+            case '0':tmp=tmp*3%mod;break;
+            case '1':tmp=tmp*2%mod;break;
+        }
+    ans=(ans+tmp)%mod;
+    cout<<ans<<"\n";
+    return 0;
+}

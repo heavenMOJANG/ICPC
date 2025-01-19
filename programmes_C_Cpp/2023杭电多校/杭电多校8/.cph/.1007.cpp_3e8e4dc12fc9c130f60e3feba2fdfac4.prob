@@ -1,0 +1,1 @@
+{"name":"Local: 1007","url":"d:\\programmes_C_Cpp\\2023杭电多校\\杭电多校8\\1007.cpp","tests":[{"id":1691640930593,"input":"3\n3 2\n1 2\n1 3\n3\n1 2 3\n4 2\n1 2\n3 4\n3\n1 2 4\n6 4\n1 2\n3 4\n5 6\n1 5\n2\n1 6","output":"YES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\programmes_C_Cpp\\2023杭电多校\\杭电多校8\\1007.cpp","group":"local","local":true}
