@@ -34,6 +34,13 @@
             "autoReload": {
                 "enable": true
             }
-        }
+        },
+         {// Java 调试配置
+         "name": "Debug Java", // 配置名称，可以任意修改
+         "type": "java", // 配置类型，Java 调试器类型。需要安装 Java 扩展
+         "request": "launch", // 请求配置类型，启动新进程
+         "mainClass": "${fileBasenameNoExtension}", // 主类，${fileBasenameNoExtension} 表示不带扩展名的文件名
+         "console": "integratedTerminal" // 使用集成终端，可以为 "integratedTerminal" 或 "externalTerminal"
+     }
     ]
 }
