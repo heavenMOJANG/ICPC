@@ -5,12 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "model",
-            "request": "launch",
-            "mainClass": "model"
-        },
-        {
             "name": "(gdb) Launch",
             "preLaunchTask": "C/C++: g++.exe 生成活动文件",
             "type": "cppdbg",
@@ -41,12 +35,5 @@
                 "enable": true
             }
         },
-        {
-            "name": "Debug Java",
-            "type": "java",
-            "request": "launch",
-            "mainClass": "${fileBasenameNoExtension}",
-            "console": "integratedTerminal"
-        }
     ]
 }
