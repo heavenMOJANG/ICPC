@@ -26,11 +26,10 @@ void solve() {
     };
     for (int i = 0; i < 64; ++ i) {
         if (s[i].size() < 2) continue;
-        for (int j = 1; j < s[i].size(); ++ j) unionSet(s[i][0], s[i][j]);
+        for (int j = 1; j < s[i].size(); ++ j) unionSet(s[0], s[j]);
     }
     int maxn{};
-    for (int i = 0; i < n; ++ i) maxn = max(maxn, siz[i]);
-    cout << maxn << "\n";
+    for (int i)
 }
 signed main() {
     cin.tie(0) -> sync_with_stdio(0);

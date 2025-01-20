@@ -1,0 +1,30 @@
+#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int n, m; cin >> n >> m;
+    set<int> s[n];
+    for (int i = 0; i < n; ++ i)
+        for (int j = 0; j < m; ++ j) {
+            int x; cin >> x;
+            s[i].insert(x % n);
+        }
+    vector<pair<int, int>> p(n);
+    for (int i = 0; i < n; ++ i) {
+        if (s[i].size() != 1) { cout << "-1\n"; return; }
+        p[i] = {*s[i].begin(), i};
+    }
+    sort(p.begin(), p.end());
+    for (int i = 0; i < n; ++ i) cout << p[i].second + 1 << " \n"[i + 1 == n];
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; cin >> _;
+    while(_ --) solve();
+    return 0;
+}
