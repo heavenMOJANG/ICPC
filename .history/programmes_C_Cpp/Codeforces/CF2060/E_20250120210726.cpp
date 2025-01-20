@@ -39,7 +39,7 @@ void solve() {
         cntf += F.findSet(i) == i;
         cntg += G.findSet(i) == i;
     }
-    ans -= cntg - cntf;
+    ans += cntg - cntf;
     cout << ans << "\n";
     return;
 }

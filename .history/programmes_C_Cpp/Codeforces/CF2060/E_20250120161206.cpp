@@ -1,0 +1,38 @@
+#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+class DSU {
+    vector<int> f, siz;
+    DSU (int len) : f(len + 1), siz(len + 1, 1) { iota(f.begin(), f.end(), 0); }
+    int find(int x) { return f[x] == x ? x : f[x] = find(f[x]); }
+    void union(int x, int y) {
+        x = find(x), y = find(y);
+        if (isSame(x, y)) return;
+        if (siz[x] >= siz[y]) f[y] = x, siz[x] += siz[y];
+        else f[x] = y, siz[y] += siz[x];
+    }
+    bool isSame(int x, int y) { return x == y; }
+};
+void solve() {
+    int n, m1, m2; cin >> n >> m1 >> m2;
+    vector<int> f[n + 1], g[n + 1];
+    DSU F(n), G(n);
+    for (int i = 0; i < m1; ++ i) {
+        int u, v; cin >> u >> v;
+        f[u].emplace_back(v);
+        f[v].emplace_back(u);
+        F.union(u, v);
+    }
+    for ()
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}
