@@ -68,7 +68,7 @@ int main() {
             } else if (cntB >= 2 && cntA >= 2 && a.back() - a.front() <= b.back() - b.front() || cntB >= 2 && cntA == 1) {
                 addb();
             } else if (cntB == 0) { 
-                delb();  // 反悔
+                delb();[  // 反悔
                 adda();
                 adda();
             } else if (cntA == 0) {
