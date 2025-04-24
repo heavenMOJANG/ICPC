@@ -1,0 +1,26 @@
+#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int k; vector<int> a(3);
+    cin >> k >> a[0] >> a[1] >> a[2];
+    int minn = LLONG_MAX;
+    for (int i{}; i < 8; ++ i) {
+        int res{};
+        for (int j{}; j < 3; ++ j)
+            if ((1ll << j) & i) res += a[j];
+        if (k - res >= 0) minn = min(minn, res);
+    }
+    cout << minn << "\n";
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; cin >> _;
+    while(_ --) solve();
+    return 0;
+}
