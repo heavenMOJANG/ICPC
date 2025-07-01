@@ -1,0 +1,25 @@
+#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int n; cin >> n;
+    string s; cin >> s;
+    string t{};
+    for (int i{}; i < s.size(); ++ i) if (t.empty() || t.back() != s[i]) t += s[i];
+    if (t.size() == 1) { cout << (s[0] == '1') + 1 << "\n"; return; }
+    if (t.size() <= 3) { cout << n + 1 << "\n"; return; }
+    int ans = s[0] == '1';
+    for (int i{}; i < n - 1; ++ i) ans += s[i] != s[i + 1];
+    cout << ans + n - 2 << "\n";
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; cin >> _;
+    while(_ --) solve();
+    return 0;
+}

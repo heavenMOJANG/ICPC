@@ -1,0 +1,41 @@
+#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+
+void solve() {
+    int n, m; cin >> n >> m;
+    int ok = 1;
+    vector<int> g[n + 1], vis(n + 1, 0);
+    for (int i{}; i < m; ++ i) {
+        int u, v; cin >> u >> v;
+        g[u].emplace_back(v);
+        g[v].emplace_back(u);
+    }
+    if (g[1].size() != 2) { cout << "No\n"; return; }
+    function<void(int, int, int)> dfs = [&](int u, int fa, int lv) {
+        if (vis[u]) {
+            cout << u << " " << lv << "\n";
+            if (lv != n + 1) ok = 0;
+            return;
+        }
+        vis[u] = 1;
+        if (g[u].size() != 2) return;
+        for (auto v : g[u]) {
+            if (v == fa) continue;
+            dfs(v, u, lv + 1);
+        }
+    };
+    dfs(1, g[1][0], 1);
+    cout << (ok ? "Yes\n" : "No\n");
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}

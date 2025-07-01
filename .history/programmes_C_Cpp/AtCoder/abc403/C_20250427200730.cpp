@@ -1,0 +1,36 @@
+#pragma GCC optimize(1)
+#pragma GCC optimize(2)
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int n, m, q; cin >> n >> m >> q;
+    vector<int> vis(n + 1, 0);
+    unordered_map<int, unordered_set<int>> mp; 
+    while (q --) {
+        int op, x, y;
+        cin >> op;
+        if (op == 1) {
+            cin >> x >> y;
+            mp[y].insert(x);
+        }
+        if (op == 2) {
+            cin >> x;
+            vis[x] = 1;
+        }
+        if (op == 3) {
+            cin >> x >> y;
+            if (vis[x] || mp[y].find(x) != mp[y].end()) cout << "Yes\n";
+            else cout << "No\n";
+        }
+    }
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}
