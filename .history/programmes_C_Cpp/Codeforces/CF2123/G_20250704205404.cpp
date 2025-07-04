@@ -19,7 +19,7 @@ void solve() {
             int i, d; cin >> i >> d;
             for (auto [x, y] : ans) {
                 ans[x] += get(d - a[i - 1], x) - get(a[i] - a[i - 1], x);
-                if (i != n) ans[x] += get(a[i + 1] - d, x) - get(a[i + 1] - a[i], x);
+                if (i != n) ans[x] += (a[i + 1] - d, x) - get(a[i + 1] - a[i], x);
             }
             a[i] = d;
         } else {
