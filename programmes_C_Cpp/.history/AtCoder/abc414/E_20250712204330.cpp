@@ -1,0 +1,22 @@
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+constexpr int MOD = 998244353;
+void solve() {
+    int n, ans{}; cin >> n;
+    for (int l = 1, r; l <= n; l = r + 1) {
+        r = n / (n / l);
+        (ans += n / l * (r - l + 1) % MOD) %= MOD;
+    }
+    ans = (n % MOD * ((n + 1) % MOD) % MOD * ((MOD + 1) / 2) % MOD - ans + MOD) % MOD;
+    cout << ans << "\n";
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}

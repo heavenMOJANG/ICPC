@@ -1,0 +1,24 @@
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int n, m; cin >> n >> m;
+    vector<int> X(n);
+    for (auto && x : X) cin >> x;
+    sort(X.begin(), X.end());
+    vector<int> diff;
+    for (int i{}; i < n - 1; ++ i) diff.emplace_back(X[i + 1] - X[i]);
+    sort(diff.begin(), diff.end(), greater<int>());
+    int tot{};
+    for (int i{}; i < m - 1; ++ i) tot += diff[i];
+    cout << X[n - 1] - X[0] - tot << "\n";
+    return;
+}
+signed main() {
+    cin.tie(0) -> sync_with_stdio(0);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}
