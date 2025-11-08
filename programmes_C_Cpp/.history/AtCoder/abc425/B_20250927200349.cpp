@@ -1,0 +1,32 @@
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int n; cin >> n;
+    vector<int> a(n + 1), vis(n + 1);
+    for (int i = 1; i <= n; ++ i) {
+        cin >> a[i];
+        if (a[i] != -1) vis[a[i]] ++;
+    }
+    for (int i = 1; i <= n; ++ i) if (vis[i] > 1) { cout << "No\n"; return; }
+    for (int i = 1; i <= n; ++ i)
+        if (a[i] == -1) {
+            for (int j = 1; j <= n; ++ j)
+                if (!vis[j]) {
+                    a[i] = j;
+                    vis[j] = 1;
+                    break;
+                }
+        }
+    cout << "Yes\n";
+    for (int i = 1; i <= n; ++ i) cout << a[i] << " \n"[i == n];
+    return;
+}
+signed main() {
+    cin.tie(nullptr) -> sync_with_stdio(false);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}

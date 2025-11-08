@@ -1,0 +1,17 @@
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int x, c; cin >> x >> c;
+    int a = x * c / 1000;
+    cout << (x - a) / 1000 * 1000 << "\n";
+    return;
+}
+signed main() {
+    cin.tie(nullptr) -> sync_with_stdio(false);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}

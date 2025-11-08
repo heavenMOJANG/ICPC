@@ -1,0 +1,27 @@
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+#define pii pair<int, int>
+using namespace std;
+constexpr int INF = 0x7fffffff;
+void solve() {
+    int n, m; cin >> n >> m;
+    vector<int> a(n);
+    for (auto && x : a) cin >> x, x %= m;
+    int nn = n / 2;
+    vector<int> l(a.begin(), a.begin() + nn);
+    vector<int> r(a.begin() + nn, a.end());
+    map<pii, int> ml, mr;
+    function<void(int, int, int, int, map<pii, int>&)> dfs = [&](int x, int sum, int cnt, int lim, map<pii, int>& mp) {
+        if (x == lim) { mp[{sum % m, cnt}]++; return; }
+        dfs(x + 1, sum, cnt, lim, mp);
+        dfs(x + 1, sum + a[x], cnt + 1, lim, mp);
+    };
+    return;
+}
+signed main() {
+    cin.tie(nullptr) -> sync_with_stdio(false);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}

@@ -1,0 +1,28 @@
+#pragma GCC optimize(3, "Ofast", "inline")
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+constexpr int INF = 0x7fffffff;
+int rev(int x) {
+    int res{};
+    while (x) {
+        res = res * 10 + (x % 10);
+        x /= 10;
+    }
+    return res;
+}
+void solve() {
+    int x, y; cin >> x >> y;
+    vector<int> a(11);
+    a[1] = x, a[2] = y;
+    for (int i = 3; i <= 10; ++ i)
+        a[i] = rev(a[i - 1] + a[i - 2]);
+    cout << a[10] << "\n";
+    return;
+}
+signed main() {
+    cin.tie(nullptr) -> sync_with_stdio(false);
+    int _ = 1; //cin >> _;
+    while(_ --) solve();
+    return 0;
+}
