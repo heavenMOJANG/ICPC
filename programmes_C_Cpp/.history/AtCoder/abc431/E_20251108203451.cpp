@@ -3,36 +3,37 @@
 #define int long long
 using namespace std;
 constexpr int INF = 0x7fffffff;
-struct S { int x, y, z; };
+struct S { int x, y, d; };
 void solve() {
     int n, m; cin >> n >> m;
     vector<string> g(n);
     for (auto && x : g) cin >> x;
     vector<vector<int>> go = {{0, 1, 2, 3}, {3, 2, 1, 0}, {1, 0, 3, 2}};
     vector<int> dis(4 * n * m, INF);
-    auto get = [&](int x, int y, int z) { return 4 * m * x + 4 * y + z; };
+    auto get = [&](int x, int y, int d) { return 4 * x * m + 4 * y + d; };
     deque<S> dq; dq.push_back({0, 0, 1});
     dis[get(0, 0, 1)] = 0;
     int ans = INF;
     while (!dq.empty()) {
-        auto [x, y, z] = dq.front(); dq.pop_front();
-        int d = dis[get(x, y, z)];
+        auto [x, y, d] = dq.front(); dq.pop_front();
+        int dd = dis[get(x, y, d)];
+        if (dd != dis[get(x, y, d)]) continue;
         for (int k{}; k < 3; ++ k) {
-            int nz = go[k][z], w = ((k == 0 && g[x][y] == 'A') || (k == 1 && g[x][y] == 'B') || (k == 2 && g[x][y] == 'C')) ? 0ll : 1ll;
-            int cost = d + w, nx = x, ny = y;
-            switch (nz) {
+            int nxt = go[k][d], w = ((k == 0 && g[x][y] == 'A') || (k == 1 && g[x][y] == 'B') || (k == 2 && g[x][y] == 'C')) ? 0ll : 1ll;
+            int nxtd = dd + w;
+            int nx = x, ny = y;
+            switch (nxt) {
                 case 0: nx = x - 1; break;
                 case 1: ny = y + 1; break;
                 case 2: nx = x + 1; break;
                 case 3: ny = y - 1; break;
             }
-            if (nx == n - 1 && ny == m) { ans = min(ans, cost); continue; }
-            if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
-            int id = get(nx, ny, nz);
-            if (cost < dis[id]) {
-                dis[id] = cost;
-                if (!w) dq.push_front({nx, ny, nz});
-                else dq.push_back({nx, ny, nz});
+            if (nx == n - 1 && ny == w) { ans = min(ans, nxtd); continue; }
+            int id = get(nx, ny, nxt);
+            if (nxtd < dis[id]) {
+                dis[id] = nxtd;
+                if (!w) dq.push_front({nx, ny, nxt});
+                else dq.push_back({nx, ny, nxt});
             }
         }
     }

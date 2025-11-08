@@ -10,7 +10,7 @@ void solve() {
     for (auto && x : g) cin >> x;
     vector<vector<int>> go = {{0, 1, 2, 3}, {3, 2, 1, 0}, {1, 0, 3, 2}};
     vector<int> dis(4 * n * m, INF);
-    auto get = [&](int x, int y, int z) { return 4 * m * x + 4 * y + z; };
+    auto get = [&](int x, int y, int z) { return 4 * x * m + 4 * y + z; };
     deque<S> dq; dq.push_back({0, 0, 1});
     dis[get(0, 0, 1)] = 0;
     int ans = INF;

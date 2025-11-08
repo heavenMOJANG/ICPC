@@ -10,7 +10,7 @@ void solve() {
     int q; cin >> q;
     int tot = x;
     while (q --) {
-        int p; cin >> p, p --;
+        int p; cin >> p;
         if (f[p]) {
             tot -= w[p];
             f[p] --;

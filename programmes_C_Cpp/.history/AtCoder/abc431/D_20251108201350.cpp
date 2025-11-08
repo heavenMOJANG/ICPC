@@ -17,7 +17,8 @@ void solve() {
     for (int i{}; i < n; ++ i) {
         if (w[i] > v) continue;
         for (int j = v; j >= w[i]; -- j)
-            if (dp[j - w[i]] != -INF) dp[j] = max(dp[j], dp[j - w[i]] + h[i] - b[i]);
+            if (dp[j - w[i]] != -INF)
+                dp[j] = max(dp[j], dp[j - w[i]] + h[i] - b[i]);
     }
     cout << sum + *max_element(dp.begin(), dp.end()) << "\n";
     return;
