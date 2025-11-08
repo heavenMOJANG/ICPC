@@ -9,7 +9,7 @@ int fac[N] = {1, 1}, inv[N];
 int fp(int a, int x) {
     int r = 1;
     while (x) {
-        if (x & 1) r = r * a % MOD;
+        if (x) r = r * a % MOD;
         a = a * a % MOD;
         x >>= 1;
     }
@@ -36,9 +36,9 @@ void solve() {
         if (tmp <= 0) { cout << "0\n"; return; }
         (res *= tmp % MOD) %= MOD;
     }
-    map<int, int> mp;
-    for (int x : a) mp[x] ++;
-    for (auto [x, y] : mp) (res *= inv[y]) %= MOD;
+    unordered_map<int, int> ump;
+    for (int x : a) ump[x] ++;
+    for (auto [x, y] : ump) (res *= inv[y]) %= MOD;
     cout << res << "\n";
     return;
 }

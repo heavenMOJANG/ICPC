@@ -10,7 +10,7 @@ void solve() {
     for (auto && x : g) cin >> x;
     vector<vector<int>> go = {{0, 1, 2, 3}, {3, 2, 1, 0}, {1, 0, 3, 2}};
     vector<int> dis(4 * n * m, INF);
-    auto get = [&](int x, int y, int z) { return 4 * m * x + 4 * y + z; };
+    auto get = [&](int x, int y, int z) { return 4 * x * m + 4 * y + z; };
     deque<S> dq; dq.push_back({0, 0, 1});
     dis[get(0, 0, 1)] = 0;
     int ans = INF;
@@ -18,21 +18,22 @@ void solve() {
         auto [x, y, z] = dq.front(); dq.pop_front();
         int d = dis[get(x, y, z)];
         for (int k{}; k < 3; ++ k) {
-            int nz = go[k][z], w = ((k == 0 && g[x][y] == 'A') || (k == 1 && g[x][y] == 'B') || (k == 2 && g[x][y] == 'C')) ? 0ll : 1ll;
-            int cost = d + w, nx = x, ny = y;
-            switch (nz) {
+            int nxt = go[k][z], w = ((k == 0 && g[x][y] == 'A') || (k == 1 && g[x][y] == 'B') || (k == 2 && g[x][y] == 'C')) ? 0ll : 1ll;
+            int nxtd = d + w;
+            int nx = x, ny = y;
+            switch (nxt) {
                 case 0: nx = x - 1; break;
                 case 1: ny = y + 1; break;
                 case 2: nx = x + 1; break;
                 case 3: ny = y - 1; break;
             }
-            if (nx == n - 1 && ny == m) { ans = min(ans, cost); continue; }
+            if (nx == n - 1 && ny == m) { ans = min(ans, nxtd); continue; }
             if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
-            int id = get(nx, ny, nz);
-            if (cost < dis[id]) {
-                dis[id] = cost;
-                if (!w) dq.push_front({nx, ny, nz});
-                else dq.push_back({nx, ny, nz});
+            int id = get(nx, ny, nxt);
+            if (nxtd < dis[id]) {
+                dis[id] = nxtd;
+                if (!w) dq.push_front({nx, ny, nxt});
+                else dq.push_back({nx, ny, nxt});
             }
         }
     }
