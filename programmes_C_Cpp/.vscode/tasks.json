@@ -29,9 +29,9 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-std=c++23",
-                //"-g",
-                //"-Wall",
-                //"-Wl,--stack=536870912",
+                "-g",
+                "-Wall",
+                "-Wl,--stack=536870912",
                 "${file}",
                 "-o",
                 "D:\\ICPC\\programmes_C_Cpp\\build\\a.exe",

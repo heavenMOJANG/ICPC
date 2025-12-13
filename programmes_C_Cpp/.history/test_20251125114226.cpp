@@ -30,9 +30,18 @@ void solve() {
     cout << ans << "\n";
     return;
 }
-signed main() {
-    cin.tie(nullptr) -> sync_with_stdio(false);
-    int _ = 1; //cin >> _;
+void test(int testcase) {
+    string inf = to_string(testcase) + ".in";
+    string outf = to_string(testcase) + ".out";
+    freopen(inf.c_str(), "r", stdin);
+    freopen(outf.c_str(), "w", stdout);
+    int _ = 1; cin >> _;
     while(_ --) solve();
+    fclose(stdin);
+    fclose(stdout);
+    return;
+}
+signed main() {
+    for (int i = 1; i <= 10; ++ i) test(i);
     return 0;
 }

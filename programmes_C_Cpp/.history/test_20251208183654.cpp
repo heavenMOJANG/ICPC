@@ -9,11 +9,12 @@ void solve() {
     cin >> a[1];
     for (int i = 2; i <= n; ++ i) a[i] = (a[i - 1] * 3703 + 1047) % n + 1;
     map<int, int> mp;
-    int cnt{};
-    for (int i = 1; i <= n; ++ i) {
-        cnt ++;
-        mp[a[i]] += cnt > 4 ? 4ll : cnt;
-        if (i == n || a[i] != a[i + 1]) cnt = 0;
+    int cnt = 1; mp[a[1]] ++;
+    for (int i = 2; i <= n; ++ i) {
+        if (a[i] == a[i - 1]) cnt ++;
+        else cnt = 1;
+        if (cnt > 3) mp[a[i]] += 4;
+        else mp[a[i]] += cnt;
     }
     int ans{}, maxn{};
     for (map<int, int> :: iterator it = mp.begin(); it != mp.end(); ++ it) {
@@ -21,7 +22,7 @@ void solve() {
         if (v > maxn) {
             maxn = v;
             ans = k;
-        } else if (v == maxn) ans = min(ans, k);
+        }
     }
     cout << ans << "\n";
     return;
