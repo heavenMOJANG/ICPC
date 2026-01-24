@@ -16,13 +16,13 @@ struct F {
 };
 
 // op: merge two nodes
-S op(S a, S b) {
+S op(const S &a, const S &b) {
     return S{ max(a.mx, b.mx), a.cnt + b.cnt, a.len + b.len };
 }
 S e() { return S{0LL, 0LL, 0LL}; }
 
 // mapping: apply lazy f to node s
-S mapping(F f, S s) {
+S mapping(const F &f, const S &s) {
     S res = s;
     if (f.flip) {
         // "eat all then flip": all values become 0, and face-up count toggles
@@ -37,7 +37,7 @@ S mapping(F f, S s) {
 }
 
 // composition: return f ∘ g, i.e. applying g then f is same as applying h = composition(f,g)
-F composition(F f, F g) {
+F composition(const F &f, const F &g) {
     F h;
     // final flip is xor
     h.flip = f.flip ^ g.flip;
@@ -62,7 +62,7 @@ int main() {
     vector<S> init(N);
     for (int i = 0; i < N; ++i) init[i] = S{0LL, 1LL, 1LL}; // initially all face-up, zero takoyaki
 
-    lazy_segtree<S, op, e, F, mapping, composition, id> seg(init);
+    lazy_segtree<S, op, e, F, mapping, composition, id> seg(init.begin(), init.end());
 
     for (int qi = 0; qi < Q; ++qi) {
         int t; cin >> t;
