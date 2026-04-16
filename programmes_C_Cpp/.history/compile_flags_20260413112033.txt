@@ -1,0 +1,8 @@
+-xc++
+-std=c++23
+-Wall
+-Wl,--stack=536870912
+-g
+-isystem
+"C:\atcoder"
+-D_Atomic=volatile

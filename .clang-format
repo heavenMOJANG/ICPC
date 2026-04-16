@@ -1,0 +1,27 @@
+---
+# 基础风格，建议用 LLVM 或 Google
+BasedOnStyle: LLVM
+
+# 允许短的 if 语句写在同一行
+AllowShortIfStatementsOnASingleLine: true
+
+# 允许短的循环（for/while）写在同一行
+AllowShortLoopsOnASingleLine: true
+
+# 允许短的函数写在同一行
+AllowShortFunctionsOnASingleLine: All
+
+# 允许短的 lambda 表达式写在同一行
+AllowShortLambdasOnASingleLine: All
+
+# 重点：不要在赋值号、括号等地方强行折行
+ColumnLimit: 0
+
+# 缩进设置（根据你个人习惯，这里设为 4 空格）
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# 连续声明对齐（可选，会让代码更好看）
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: true

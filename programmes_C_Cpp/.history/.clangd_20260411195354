@@ -1,0 +1,23 @@
+CompileFlags:
+  # 指定编译器路径，让 clangd 能够找到 bits/stdc++.h
+  Compiler: C:/mingw64/bin/g++.exe
+  
+  # 从你的 tasks.json 中同步过来的参数
+  Add: [
+    "-std=c++23",          # 对齐你用的 C++23 标准
+    "-Wall",               # 开启所有常见警告
+    "-Wextra",             # 开启额外的警告
+    "-fdiagnostics-color=always",
+    "-g",
+    # 注意：-Wl 和 -l 是链接参数，clangd（语法检查）通常会忽略它们，但放进去保持一致也没问题
+    "-Wl,--stack=536870912",
+    "-lwsock32"
+  ]
+
+# 针对竞赛环境的额外优化
+Index:
+  Background: Build        # 后台自动索引，提高跳转速度
+
+Diagnostics:
+  UnusedIncludes: Strict   # 严格检查未使用的头文件
+  MissingIncludes: Strict  # 严格检查缺失的头文件

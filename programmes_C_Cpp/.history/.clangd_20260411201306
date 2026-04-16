@@ -1,0 +1,13 @@
+CompileFlags:
+  Compiler: C:/mingw64/bin/g++.exe
+  Add: [
+    "-std=c++23",
+    "-Wall",
+    "-Wextra",
+    "-Wno-unknown-pragmas",        # 让 clangd 闭嘴，不要管 GCC 的 #pragma 优化指令
+    "-Wno-unused-const-variable"   # 允许模板里放着 INF 等常量暂时不用
+  ]
+
+Diagnostics:
+  UnusedIncludes: None   # 彻底关闭“未使用的头文件”警告
+  MissingIncludes: None  # 彻底关闭 include-cleaner（再也不会因为万能头文件报错了）

@@ -1,0 +1,6 @@
+-xc++
+-std=c++23
+-Wall
+-Wl,--stack=536870912
+-g
+-D_Atomic=volatile
