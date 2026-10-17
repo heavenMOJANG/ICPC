@@ -1,27 +1,6 @@
 {
     "version": "2.0.0",
     "tasks": [
-        /*
-        {
-            "type": "shell",
-            "label": "g++.exe build active file",
-            "command": "C:\\mingw64\\bin\\g++.exe",
-            "args": [
-                "-std=c++23",
-                //"-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\build\\a.exe"
-            ],
-            "options": {
-                "cwd": "C:\\mingw64\\bin"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build"
-        },
-        */
         {
             "type": "process",
             "label": "C/C++: g++.exe 生成活动文件",
@@ -32,6 +11,8 @@
                 "-g",
                 "-Wall",
                 "-Wl,--stack=536870912",
+                "-I",
+                "D:/ICPC",
                 "${file}",
                 "-o",
                 "D:\\ICPC\\programmes_C_Cpp\\build\\a.exe",
@@ -57,9 +38,31 @@
             },
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": true // 保留 C++ 作为默认构建任务
             },
             "detail": "调试器生成的任务。"
+        },
+        // --- 下面是新添加的 Rust 任务 ---
+        {
+            "label": "cargo build",
+            "type": "cargo",
+            "command": "build",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build", // 这里去掉了 isDefault: true，避免与 C++ 冲突
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "cargo run",
+            "type": "cargo",
+            "command": "run",
+            "problemMatcher": [
+                "$rustc"
+            ]
         }
     ]
 }

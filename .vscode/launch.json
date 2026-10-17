@@ -18,6 +18,25 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug Rust",
+            // codelldb 特有的 cargo 属性，会在调试前自动执行 build
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=你的项目名" // 将这里替换为你的 Cargo.toml 中的 name
+                ],
+                "filter": {
+                    "name": "你的项目名",
+                    "kind": "bin"
+                }
+            },
+            "args": [], // 如果你的程序需要命令行参数，填在这里
+            "cwd": "${workspaceFolder}",
+            "terminal": "integrated"
         }
     ]
 }

@@ -104,6 +104,7 @@
     "print": "cpp",
     "text_encoding": "cpp"
   },
+  "clangd.path": "C:\\Users\\Georg\\AppData\\Roaming\\Antigravity IDE\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\22.1.0\\clangd_22.1.0\\bin\\clangd.exe",
   "clangd.arguments": [
     "--query-driver=C:/mingw64/bin/g++.exe",
     "--header-insertion=never"
@@ -114,5 +115,41 @@
   },
   "code-runner.runInTerminal": true,
   "code-runner.clearPreviousOutput": true,
-  "code-runner.saveFileBeforeRun": true
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.executorMap": {
+    // 单文件直接编译运行，产物放在 build 文件夹中
+    "rust": "cd $dir && rustc $fileName -o D:\\ICPC\\programmes_C_Cpp\\build\\$fileNameWithoutExt.exe && D:\\ICPC\\programmes_C_Cpp\\build\\$fileNameWithoutExt.exe"
+    // 注意：如果你以后创建了标准的 Cargo 工程项目，请将上面那行注释掉，解开下面这行的注释：
+    // "rust": "cd $workspaceRoot && cargo run"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
+  },
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.inlayHints.typeHints.enable": true,
+  "rust-analyzer.inlayHints.parameterHints.enable": true,
+  "cp-runner.execution.timeLimit": 2000,
+  "cp-runner.execution.memoryLimit": 256,
+  "cp-runner.compiler.cppFlags": "-O2 -std=c++23 -g -Wshadow -I D:/ICPC -o -lwsock32",
+  "cp-runner.compiler.cFlags": "-O2 -std=c11",
+  "cp-runner.compiler.javaFlags": "",
+  "cp-runner.diff.ignoreTrailingWhitespace": true,
+  "cp-runner.diff.ignoreSystemLineEndings": true,
+  "cp-runner.diff.floatTolerance": false,
+  "cp-runner.diff.floatEpsilon": 0.000001,
+  "cp-runner.concurrency.maxWorkers": 4,
+  "cp-runner.execution.autoRun": false,
+  "cp-runner.execution.autoSave": true,
+  "cp-runner.execution.autoClearConsole": true,
+  "cp-runner.compiler.cppCommand": "g++",
+  "cp-runner.compiler.cCommand": "gcc",
+  "cp-runner.compiler.javaCommand": "java",
+  "cp-runner.compiler.pythonCommand": "python3",
+  "cp-runner.defaultLanguageExtension": ".cpp",
+  "cp-runner.templateCode": "",
+  "cp-runner.execution.focusOnFileOpen": true,
+  "cp-runner.ui.fontSize": 12,
+  "cp-runner.execution.autoRunKeybinding": "ctrl+alt+r"
 }
